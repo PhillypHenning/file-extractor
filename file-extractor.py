@@ -1,32 +1,87 @@
 #!/usr/bin/env python
-
+# Copyright 2017 Phillyp Henning
 # file_extractor
 import sys
+import os.path
+import hashlib
 
 class FileHandler():
     def __init__(self, **kwargs):
         self.file = kwargs.get('file')
+        self.fh = open(self.file)
+
 
     def verify(self):
-        print('TODO')
+        if not os.path.isfile(self.file) :
+            print('File not found, run file-extractor.py help for usage')
+            exit()
         
 
-
-    def parse_file_name(self):
-        print('TODO')
+    def parse_filename(self):
+        out_file = ""
+        for c in reversed(self.file) :
+            if c == '/' :
+                break            
+            else :
+                out_file += c
+        self.filename = out_file[::-1] 
 
 
     def byte_counter(self):
-        print('TODO')
+        self.file_bytes = os.path.getsize(self.file)
 
+
+    def sha1_digest(self) :
+        sha_file = hashlib.sha1()
+        with open(self.file) as f :
+            sha_file.update(f.readline())
+        self.sha_hex = sha_file.hexdigest()
+        
+
+    def md5_digest(self) :
+        md5_file = hashlib.md5()
+        with open(self.file) as f:
+            md5_file.update(f.readline())
+        self.md5_hex = md5_file.hexdigest()
+
+
+    def print_results(self):
+        print(
+            'Filename   : %s \nFile bytes : %s \nsha1 hex   : %s \nmd5 hex    : %s' \
+             % (self.filename, self.file_bytes, self.sha_hex, self.md5_hex)
+        )
 
 def main(args):
-    new_dict = dict()
-    for arg in args:
-        key = arg.split('=')[0]
-        value = arg.split('=')[1]
-        new_dict[key] = value
+    """
+    Need        Command            Usage
+    Start       run                file-extractor.py <PathtoFile> run
+    """
+    
+    if (len(args) > 2):
+        print('Incorrect amount of arguements, run file-extractor.py help for usage')
+        exit()
+    
+    if(args[1] == 'run'):
+        fh = FileHandler(
+            **{'file' : args[0], })
+
+        fh.verify()
+        fh.parse_filename()
+        fh.byte_counter()
+        fh.sha1_digest()
+        fh.md5_digest()
+        
+        fh.print_results()
+
+    else:
+        print(
+            """
+            Need        Command            Usage
+            Start       run                file-extractor.py <PathtoFile> run
+            """
+        )
+        exit()
 
 
-def __name__ == '__main__' :
+if __name__ == '__main__' :
     main(sys.argv[1:])
