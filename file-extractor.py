@@ -3,10 +3,12 @@
 # file_extractor
 import sys
 import os.path
+import hashlib
 
 class FileHandler():
     def __init__(self, **kwargs):
         self.file = kwargs.get('file')
+        self.fh = open(self.file)
 
 
     def verify(self):
@@ -15,10 +17,9 @@ class FileHandler():
             exit()
         
 
-    def parse_file_name(self):
+    def parse_filename(self):
         out_file = ""
         for c in reversed(self.file) :
-            print(c)
             if c == '/' :
                 break
             
@@ -29,7 +30,14 @@ class FileHandler():
 
 
     def byte_counter(self):
-        print('TODO')
+        self.file_bytes = os.path.getsize(self.file)
+
+    def sha1_digest(self) :
+        sha_file = hashlib.sha1()
+        with open(self.file) as f :
+            sha_file.update(f.readline())
+        pself.sha_hex = sha_file.hexdigest()
+        
 
 
 def main(args):
@@ -47,7 +55,9 @@ def main(args):
             **{'file' : args[0], })
 
         fh.verify()
-        fh.parse_file_name()
+        fh.parse_filename()
+        fh.byte_counter()
+        fh.sha1_digest()
 
     else:
         print(
