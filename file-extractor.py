@@ -22,13 +22,11 @@ class FileHandler():
 
 def main(args):
     """
-    Usage:
-
-    Need            Command
-    Start           file-extractor.py run
+    Need        Command            Usage
+    Start       run                file-extractor.py <PathtoFile> run
     """
-    if (len(args) > 1):
-        print('Incorrect usage, please use help() to see usage.')
+    if (len(args) > 2):
+        print('Incorrect amount of arguements, run file-extractor.py help for usage')
         exit()
     if(args[0] == 'run'):
         new_dict = dict()
@@ -38,12 +36,17 @@ def main(args):
             new_dict[key] = value
 
     else:
-        print('Incorrect usage, please use help() to see usage.')
+        print(
+            """
+            Need        Command            Usage
+            Start       run                file-extractor.py <PathtoFile> run
+            """
+        )
         exit()
 
 
 
 
 
-def __name__ == '__main__' :
+if __name__ == '__main__' :
     main(sys.argv[1:])
