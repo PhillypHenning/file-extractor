@@ -5,8 +5,19 @@ import sys
 
 class FileHandler():
     def __init__(self, **kwargs):
-        for key, value in kwargs.items():
-            setattr(self, key, value)
+        self.file = kwargs.get('file')
+
+    def verify(self):
+        print('TODO')
+        
+
+
+    def parse_file_name(self):
+        print('TODO')
+
+
+    def byte_counter(self):
+        print('TODO')
 
 
 def main(args):
