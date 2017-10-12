@@ -13,7 +13,7 @@ class FileHandler():
 
 
     def parse_file_name(self):
-        print('TODO')
+        print(len(self.file)) 
 
 
     def byte_counter(self):
@@ -21,12 +21,32 @@ class FileHandler():
 
 
 def main(args):
-    new_dict = dict()
-    for arg in args:
-        key = arg.split('=')[0]
-        value = arg.split('=')[1]
-        new_dict[key] = value
+    """
+    Need        Command            Usage
+    Start       run                file-extractor.py <PathtoFile> run
+    """
+    if (len(args) > 2):
+        print('Incorrect amount of arguements, run file-extractor.py help for usage')
+        exit()
+    if(args[1] == 'run'):
+        fh = FileHandler(
+            # Add keyword arg here for **kwargs 
+        )
 
 
-def __name__ == '__main__' :
+
+    else:
+        print(
+            """
+            Need        Command            Usage
+            Start       run                file-extractor.py <PathtoFile> run
+            """
+        )
+        exit()
+
+
+
+
+
+if __name__ == '__main__' :
     main(sys.argv[1:])
