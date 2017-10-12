@@ -28,12 +28,12 @@ def main(args):
     if (len(args) > 2):
         print('Incorrect amount of arguements, run file-extractor.py help for usage')
         exit()
-    if(args[0] == 'run'):
-        new_dict = dict()
-        for arg in args:
-            key = arg.split('=')[0]
-            value = arg.split('=')[1]
-            new_dict[key] = value
+    if(args[1] == 'run'):
+        fh = FileHandler(
+            # Add keyword arg here for **kwargs 
+        )
+
+
 
     else:
         print(
