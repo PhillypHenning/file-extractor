@@ -34,6 +34,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 ## Acknowledgments
 
-* David Humphrey - Already turning out to be an amazing and engaged teacher. 
+* David Humphrey - Already turning out to be an engaging and rewarding teacher. 
 * Seneca
 
