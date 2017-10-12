@@ -51,6 +51,7 @@ class FileHandler():
              % (self.filename, self.file_bytes, self.sha_hex, self.md5_hex)
         )
 
+        
 def main(args):
     """
     Need        Command            Usage
