@@ -32,12 +32,19 @@ class FileHandler():
     def byte_counter(self):
         self.file_bytes = os.path.getsize(self.file)
 
+
     def sha1_digest(self) :
         sha_file = hashlib.sha1()
         with open(self.file) as f :
             sha_file.update(f.readline())
-        pself.sha_hex = sha_file.hexdigest()
+        self.sha_hex = sha_file.hexdigest()
         
+
+    def md5_digest(self) :
+        md5_file = hashlib.md5()
+        with open(self.file) as f:
+            md5_file.update(f.readline())
+        self.md5_hex = md5_file.hexdigest()
 
 
 def main(args):
