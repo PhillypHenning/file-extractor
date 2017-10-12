@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+# Copyright 2017 Phillyp Henning
 # file_extractor
 import sys
 import os.path
