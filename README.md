@@ -20,7 +20,7 @@ Tests still need to be completed.
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](** UPDATE **) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/PhillypHenning/file-extractor/blob/master/CONSTRIBUTING.md#contributing) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
 
