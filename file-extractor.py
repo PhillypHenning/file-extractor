@@ -19,7 +19,7 @@ class FileHandler():
 
     def parse_filename(self):
         out_file = ""
-        for c in reversed(self.file) :
+        for c in reversed(self.file) :  
             if c == '/' :
                 break            
             else :
