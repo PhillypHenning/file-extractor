@@ -47,6 +47,12 @@ class FileHandler():
         self.md5_hex = md5_file.hexdigest()
 
 
+    def print_results(self):
+        print(
+            'Filename   : %s \nFile bytes : %s \nsha1 hex   : %s \nmd5 hex    : %s' \
+             % (self.filename, self.file_bytes, self.sha_hex, self.md5_hex)
+        )
+
 def main(args):
     """
     Need        Command            Usage
@@ -65,6 +71,9 @@ def main(args):
         fh.parse_filename()
         fh.byte_counter()
         fh.sha1_digest()
+        fh.md5_digest()
+        
+        fh.print_results()
 
     else:
         print(
